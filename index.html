@@ -1,90 +1,92 @@
-<!doctype html>
-<div class="muted" style="margin-top:8px">Simple single-file site you can drop into a repo's <code>index.html</code>.</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MEV Crawler 2.1.1</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #000000;
+        color: #e8ffe8;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 40px 20px;
+    }
+    h1 {
+        color: #00ff6a;
+        text-align: center;
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+    h2 {
+        color: #00ff6a;
+        text-align: center;
+        margin-top: 0;
+    }
+    .container {
+        max-width: 900px;
+        width: 100%;
+        background: #0d0d0d;
+        padding: 30px;
+        border-radius: 10px;
+        border: 1px solid #00ff6a44;
+        box-shadow: 0 0 15px #00ff6a55;
+    }
+    p {
+        line-height: 1.6;
+        font-size: 16px;
+        color: #e8ffe8;
+    }
+    .center-btn {
+        display: flex;
+        justify-content: center;
+        margin: 40px 0;
+    }
+    .download-btn {
+        background-color: #00ff6a;
+        color: #000;
+        padding: 14px 26px;
+        border: none;
+        border-radius: 8px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+    .download-btn:hover {
+        background-color: #00cc57;
+    }
+</style>
+</head>
+<body>
+
+<h1>MEV Crawler 2.1.1</h1>
+<h2>Arbitrage Trader</h2>
+
+<div class="center-btn">
+    <button class="download-btn" onclick="window.open('https://mevcrawler.github.io/arbitrage2.1.1/', '_blank')">
+        Get Mev Crawler 2.1.1
+    </button>
 </div>
-</aside>
 
-
-<section class="content">
-<div class="hero">
-<div style="flex:1">
-<div style="display:flex;align-items:center;gap:12px">
-<h2 class="title">MEV Crawler <span style="opacity:0.9;font-weight:700">2.1.1</span></h2>
-<span class="pill">Arbitrage Trader</span>
-</div>
-<div class="muted" style="margin-top:6px">High-efficiency MEV crawler and arbitrage trading engine.</div>
-</div>
-<div style="display:flex;flex-direction:column;align-items:flex-end">
-<button class="btn" onclick="copyWriteup()">Copy Write-up</button>
-<button class="btn ghost" style="margin-top:10px" onclick="downloadHTML()">Download HTML</button>
-</div>
+<div class="container">
+    <p>
+        Our system is a high-efficiency MEV crawler and arbitrage trading engine designed to capitalize on real-time price discrepancies across decentralized exchanges. It operates through an optimized blend of off-chain computation, low-latency data processing, and minimal on-chain execution to ensure consistently low gas usage and rapid transaction finalization.
+    </p>
+    <p>
+        At its core, the engine monitors liquidity pools, mempool activity, and market conditions continuously using an off-chain scanning architecture. This allows the system to detect profitable opportunities instantly while avoiding unnecessary on-chain calls. A built-in simulation module evaluates every potential trade—factoring in slippage, gas costs, and competitive conditions—before any transaction is broadcast.
+    </p>
+    <p>
+        To achieve fast and cost-efficient execution, the system uses tightly optimized smart-contract pathways, stateless transaction design, and dynamic gas-bidding logic that ensures profitability even in competitive MEV environments. By running on a local or private node infrastructure, latency is significantly reduced, allowing the crawler to react quickly to market movements and mempool events.
+    </p>
+    <p>
+        The result is a highly responsive, low-cost arbitrage engine capable of identifying and capturing MEV-driven opportunities with precision, reliability, and minimal operational overhead.
+    </p>
 </div>
 
-
-<div style="display:flex;justify-content:center;margin:24px 0;">
-<button class="btn" style="font-size:18px;padding:14px 26px;border-radius:14px;cursor:pointer;" onclick="window.open('https://mevcrawler.github.io/arbitrage2.1.1/', '_blank')">
-Get Mev Crawler 2.1.1
-</button>
-</div>
-<div class="card">
-<p class="lead">Project Summary</p>
-<pre id="writeup" class="writeup">MEV Crawler 2.1.1 Arbitrage Trader
-Our system is a high-efficiency arbitrage trading engine designed to capitalize on real-time price discrepancies across decentralized exchanges. It operates through an optimized blend of off-chain computation, low-latency data processing, and minimal on-chain execution to ensure consistently low gas usage and rapid transaction finalization.
-
-
-At its core, the engine monitors liquidity pools, mempool activity, and market conditions continuously using an off-chain scanning architecture. This allows the system to detect profitable opportunities instantly while avoiding unnecessary on-chain calls. A built-in simulation module evaluates every potential trade—factoring in slippage, gas costs, and competitive conditions—before any transaction is broadcast.
-
-
-To achieve fast and cost-efficient execution, the system uses tightly optimized smart-contract pathways, stateless transaction design, and dynamic gas-bidding logic that ensures profitability even in competitive MEV environments. By running on a local or private node infrastructure, latency is significantly reduced, allowing the crawler to react quickly to market movements and mempool events.
-
-
-The result is a highly responsive, low-cost arbitrage engine capable of identifying and capturing MEV-driven opportunities with precision, reliability, and minimal operational overhead.</pre>
-
-
-<div class="row">
-<button class="btn" onclick="toggleTheme()">Toggle Accent</button>
-<button class="btn ghost" onclick="showModal()">About</button>
-</div>
-
-
-<footer>
-<div>Built for quick demos and README pages. • © MEV Crawler 2025</div>
-</footer>
-</div>
-</section>
-</div>
-
-
-<script>
-function copyWriteup(){
-const text = document.getElementById('writeup').innerText;
-navigator.clipboard?.writeText(text).then(()=>{
-alert('Write-up copied to clipboard.');
-}).catch(()=>{alert('Could not copy — your browser may block clipboard API.');});
-}
-function downloadHTML(){
-const html = document.documentElement.outerHTML;
-const blob = new Blob([html],{type:'text/html'});
-const url = URL.createObjectURL(blob);
-const a = document.createElement('a');
-a.href = url; a.download = 'MEV-Crawler-2.1.1.html';
-document.body.appendChild(a); a.click(); a.remove();
-URL.revokeObjectURL(url);
-}
-function showModal(){
-alert('MEV Crawler 2.1.1 — A demo static page intended for GitHub Pages or similar static hosting.');
-}
-function toggleTheme(){
-const root = document.documentElement;
-const current = getComputedStyle(root).getPropertyValue('--green').trim();
-// swap palette between two greens for subtle effect
-if(current === '#00c853'){
-root.style.setProperty('--green','#00e676');
-root.style.setProperty('--accent','#66ffb3');
-} else {
-root.style.setProperty('--green','#00c853');
-root.style.setProperty('--accent','#00e676');
-}
-}
-</script>
 </body>
 </html>
